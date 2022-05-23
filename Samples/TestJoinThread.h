@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 #include <atomic>
-#include "../LihtweightTools/JoinThread.h"
+#include "../LightweightTools/JoinThread.h"
 #include "MyObj.h"
 
 static void ThreadFun(const std::atomic<int> &a)

@@ -13,14 +13,14 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="LihtweightTools">
-      <UniqueIdentifier>{19e2bc3a-c3da-4cc8-84c3-1b7de510b89a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Objs">
       <UniqueIdentifier>{4e8ea1f2-4fd0-4dfb-ba44-eb95085f6ea4}</UniqueIdentifier>
     </Filter>
     <Filter Include="Samples">
       <UniqueIdentifier>{10ee2004-a4b2-41b4-b212-b77ab44ed843}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LightweightTools">
+      <UniqueIdentifier>{19e2bc3a-c3da-4cc8-84c3-1b7de510b89a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -34,7 +34,7 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\LihtweightTools\JoinThread.h">
-      <Filter>LihtweightTools</Filter>
+      <Filter>LightweightTools</Filter>
     </ClInclude>
     <ClInclude Include="..\..\TestJoinThread.h">
       <Filter>Samples</Filter>
