@@ -2,8 +2,10 @@
 #include <thread>
 #include <condition_variable>
 #include <chrono>
+#include "NonCopyable.h"
 
-class CJoinThread
+// joinable thread wrapper
+class CJoinThread : private CNonCopyable
 {
 	enum class EnumStatus : unsigned char { eInvalid = 0, eStop, eRunning };
 	struct SThreadStatus 
@@ -23,16 +25,16 @@ public:
 		return CreateThread([&]() {m_tThread = std::thread(&CJoinThread::WakeableWork<FnCallable, Args...>, this, pfnCallable, std::move(args)...); });
 	}
 
-	template<typename _Rep, typename _Period, class FnCallable, class ...Args>
-	bool StartTimed(const std::chrono::duration<_Rep, _Period> &time, FnCallable pfnCallable, Args ...args)
+	template<typename Rep, typename Period, class FnCallable, class ...Args>
+	bool StartTimed(const std::chrono::duration<Rep, Period> &time, FnCallable pfnCallable, Args ...args)
 	{
-		return CreateThread([&]() {m_tThread = std::thread(&CJoinThread::TimeWork<_Rep, _Period, FnCallable, Args...>, this, time, pfnCallable, std::move(args)...); });
+		return CreateThread([&]() {m_tThread = std::thread(&CJoinThread::TimeWork<Rep, Period, FnCallable, Args...>, this, time, pfnCallable, std::move(args)...); });
 	}
 
-	template<typename _Rep, typename _Period, class FnCallable, class ...Args>
-	bool StartWakeableWithTimed(const std::chrono::duration<_Rep, _Period> &time, FnCallable pfnCallable, Args ...args)
+	template<typename Rep, typename Period, class FnCallable, class ...Args>
+	bool StartWakeableWithTimed(const std::chrono::duration<Rep, Period> &time, FnCallable pfnCallable, Args ...args)
 	{
-		return CreateThread([&]() {m_tThread = std::thread(&CJoinThread::WakeableWithTimeWork<_Rep, _Period, FnCallable, Args...>, this, time, pfnCallable, std::move(args)...); });
+		return CreateThread([&]() {m_tThread = std::thread(&CJoinThread::WakeableWithTimeWork<Rep, Period, FnCallable, Args...>, this, time, pfnCallable, std::move(args)...); });
 	}
 
 	void RequestStop()
@@ -119,8 +121,8 @@ private:
 		}
 	}
 
-	template<typename _Rep, typename _Period, class FnCallable, class ...Args>
-	void TimeWork(const std::chrono::duration<_Rep, _Period> &time, FnCallable pfnCallable, Args &&...args)
+	template<typename Rep, typename Period, class FnCallable, class ...Args>
+	void TimeWork(const std::chrono::duration<Rep, Period> &time, FnCallable pfnCallable, Args &&...args)
 	{
 		auto pfnHandle = std::bind(pfnCallable, std::forward<Args>(args)...);
 		while (true)
@@ -138,8 +140,8 @@ private:
 		}
 	}
 
-	template<typename _Rep, typename _Period, class FnCallable, class ...Args>
-	void WakeableWithTimeWork(const std::chrono::duration<_Rep, _Period> &time, FnCallable pfnCallable, Args &&...args)
+	template<typename Rep, typename Period, class FnCallable, class ...Args>
+	void WakeableWithTimeWork(const std::chrono::duration<Rep, Period> &time, FnCallable pfnCallable, Args &&...args)
 	{
 		bool bTimeout = false;
 		auto pfnHandle = std::bind(pfnCallable, std::forward<Args>(args)...);

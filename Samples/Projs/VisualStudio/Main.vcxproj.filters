@@ -33,14 +33,29 @@
     <ClInclude Include="targetver.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\LihtweightTools\JoinThread.h">
-      <Filter>LightweightTools</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\TestJoinThread.h">
       <Filter>Samples</Filter>
     </ClInclude>
     <ClInclude Include="..\..\MyObj.h">
       <Filter>Objs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\LightweightTools\JoinThread.h">
+      <Filter>LightweightTools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\LightweightTools\NonCopyable.h">
+      <Filter>LightweightTools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\LightweightTools\Singleton.h">
+      <Filter>LightweightTools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\TestSingleton.h">
+      <Filter>Samples</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\LightweightTools\ObjectPool.h">
+      <Filter>LightweightTools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\TestObjectPool.h">
+      <Filter>Samples</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

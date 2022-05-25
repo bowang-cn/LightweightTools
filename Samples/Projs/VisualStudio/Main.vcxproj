@@ -145,9 +145,14 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\LihtweightTools\JoinThread.h" />
+    <ClInclude Include="..\..\..\LightweightTools\JoinThread.h" />
+    <ClInclude Include="..\..\..\LightweightTools\NonCopyable.h" />
+    <ClInclude Include="..\..\..\LightweightTools\ObjectPool.h" />
+    <ClInclude Include="..\..\..\LightweightTools\Singleton.h" />
     <ClInclude Include="..\..\MyObj.h" />
     <ClInclude Include="..\..\TestJoinThread.h" />
+    <ClInclude Include="..\..\TestObjectPool.h" />
+    <ClInclude Include="..\..\TestSingleton.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
