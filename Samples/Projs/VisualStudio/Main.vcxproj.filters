@@ -22,6 +22,9 @@
     <Filter Include="LightweightTools">
       <UniqueIdentifier>{19e2bc3a-c3da-4cc8-84c3-1b7de510b89a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="LightweightTools\SkipList">
+      <UniqueIdentifier>{83dc32e0-11ae-4eb2-aebf-4c7d1444be0e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -55,6 +58,21 @@
       <Filter>LightweightTools</Filter>
     </ClInclude>
     <ClInclude Include="..\..\TestObjectPool.h">
+      <Filter>Samples</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\LightweightTools\SkipList\Range.h">
+      <Filter>LightweightTools\SkipList</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\LightweightTools\SkipList\SkipList.h">
+      <Filter>LightweightTools\SkipList</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\LightweightTools\SkipList\SkipListIterator.h">
+      <Filter>LightweightTools\SkipList</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\LightweightTools\SkipList\SkipListLevelCreator.h">
+      <Filter>LightweightTools\SkipList</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\TestSkipList.h">
       <Filter>Samples</Filter>
     </ClInclude>
   </ItemGroup>

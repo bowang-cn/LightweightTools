@@ -6,12 +6,14 @@
 #include "../../TestJoinThread.h"
 #include "../../TestSingleton.h"
 #include "../../TestObjectPool.h"
+#include "../../TestSkipList.h"
 
 int main()
 {
-	TestObjectPool();
+	//TestObjectPool();
 	//TestSingleton();
 	//TestJoinThread();
+	TestSkipList();
 	system("pause");
     return 0;
 }

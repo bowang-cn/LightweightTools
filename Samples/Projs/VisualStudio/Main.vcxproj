@@ -149,10 +149,15 @@
     <ClInclude Include="..\..\..\LightweightTools\NonCopyable.h" />
     <ClInclude Include="..\..\..\LightweightTools\ObjectPool.h" />
     <ClInclude Include="..\..\..\LightweightTools\Singleton.h" />
+    <ClInclude Include="..\..\..\LightweightTools\SkipList\Range.h" />
+    <ClInclude Include="..\..\..\LightweightTools\SkipList\SkipList.h" />
+    <ClInclude Include="..\..\..\LightweightTools\SkipList\SkipListIterator.h" />
+    <ClInclude Include="..\..\..\LightweightTools\SkipList\SkipListLevelCreator.h" />
     <ClInclude Include="..\..\MyObj.h" />
     <ClInclude Include="..\..\TestJoinThread.h" />
     <ClInclude Include="..\..\TestObjectPool.h" />
     <ClInclude Include="..\..\TestSingleton.h" />
+    <ClInclude Include="..\..\TestSkipList.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
