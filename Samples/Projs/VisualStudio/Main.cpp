@@ -7,13 +7,15 @@
 #include "../../TestSingleton.h"
 #include "../../TestObjectPool.h"
 #include "../../TestSkipList.h"
+#include "../../TestThreadPool.h"
 
 int main()
 {
 	//TestObjectPool();
 	//TestSingleton();
 	//TestJoinThread();
-	TestSkipList();
+	//TestSkipList();
+	TestThreadPool();
 	system("pause");
     return 0;
 }

@@ -75,6 +75,12 @@
     <ClInclude Include="..\..\TestSkipList.h">
       <Filter>Samples</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\LightweightTools\ThreadPool.h">
+      <Filter>LightweightTools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\TestThreadPool.h">
+      <Filter>Samples</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
