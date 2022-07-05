@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 #include <atomic>
-#include "../LightweightTools/JoinThread.h"
+#include "../LightweightTools/LongStandingThread.h"
 #include "MyObj.h"
 
 static void ThreadFun(const std::atomic<int> &a)
@@ -11,7 +11,7 @@ static void ThreadFun(const std::atomic<int> &a)
 
 static void TestGlobleFun()
 {
-	CJoinThread aJoinThread;
+	CLongStandingThread aJoinThread;
 
 	std::atomic<int> nIndex = 0;
 	aJoinThread.StartTimed(std::chrono::seconds(1), ThreadFun, std::ref(nIndex));
@@ -27,7 +27,7 @@ static void TestGlobleFun()
 
 static void TestMemberFun()
 {
-	CJoinThread aJoinThread;
+	CLongStandingThread aJoinThread;
 	CMyObj aObj;
 	int nIndex = 1024;
 	aJoinThread.StartTimed(std::chrono::seconds(1), &CMyObj::Print, &aObj, nIndex);
@@ -42,7 +42,7 @@ static void TestMemberFun()
 
 static void TestWakeable()
 {
-	CJoinThread aJoinThread;
+	CLongStandingThread aJoinThread;
 	std::atomic<int> nIndex = 0;
 	aJoinThread.StartWakeable(ThreadFun, std::ref(nIndex));
 	for (size_t i = 0; i < 5; i++)
@@ -67,7 +67,7 @@ static void TestFun(bool bTimeout, int a)
 
 static void TestWakeableWithTimed()
 {
-	CJoinThread aJoinThread;
+	CLongStandingThread aJoinThread;
 	int nIndex = 0;
 	aJoinThread.StartWakeableWithTimed(std::chrono::seconds(3), TestFun, std::placeholders::_1, nIndex);
 	for (size_t i = 0; i < 5; i++)

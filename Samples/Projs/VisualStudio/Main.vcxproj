@@ -145,7 +145,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\LightweightTools\JoinThread.h" />
+    <ClInclude Include="..\..\..\LightweightTools\LongStandingThread.h" />
     <ClInclude Include="..\..\..\LightweightTools\NonCopyable.h" />
     <ClInclude Include="..\..\..\LightweightTools\ObjectPool.h" />
     <ClInclude Include="..\..\..\LightweightTools\Singleton.h" />

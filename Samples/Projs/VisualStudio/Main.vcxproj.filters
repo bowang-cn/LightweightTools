@@ -42,9 +42,6 @@
     <ClInclude Include="..\..\MyObj.h">
       <Filter>Objs</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\LightweightTools\JoinThread.h">
-      <Filter>LightweightTools</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\LightweightTools\NonCopyable.h">
       <Filter>LightweightTools</Filter>
     </ClInclude>
@@ -80,6 +77,9 @@
     </ClInclude>
     <ClInclude Include="..\..\TestThreadPool.h">
       <Filter>Samples</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\LightweightTools\LongStandingThread.h">
+      <Filter>LightweightTools</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

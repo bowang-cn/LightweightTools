@@ -104,7 +104,7 @@ public:
 		return m_bIsStop;
 	}
 
-	auto TaskCount() const ->decltype(task_container_t().size())
+	auto TaskCount() const ->decltype(std::declval<task_container_t>().size())
 	{
 		std::unique_lock<std::mutex> uLock(m_mtxTask);
 		return m_qTasks.size();

@@ -5,7 +5,7 @@
 #include "NonCopyable.h"
 
 // joinable thread wrapper
-class CJoinThread : private CNonCopyable
+class CLongStandingThread : private CNonCopyable
 {
 	enum class EnumStatus : unsigned char { eInvalid = 0, eStop, eRunning };
 	struct SThreadStatus 
@@ -16,25 +16,25 @@ class CJoinThread : private CNonCopyable
 		SThreadStatus() :m_eStatus(EnumStatus::eInvalid) {}
 	};
 public:
-	CJoinThread() : m_bWaked(false) {}
-	~CJoinThread() {}
+	CLongStandingThread() : m_bWaked(false) {}
+	~CLongStandingThread() {}
 
 	template<class FnCallable, class ...Args>
 	bool StartWakeable(FnCallable pfnCallable, Args ...args)
 	{
-		return CreateThread([&]() {m_tThread = std::thread(&CJoinThread::WakeableWork<FnCallable, Args...>, this, pfnCallable, std::move(args)...); });
+		return CreateThread([&]() {m_tThread = std::thread(&CLongStandingThread::WakeableWork<FnCallable, Args...>, this, pfnCallable, std::move(args)...); });
 	}
 
 	template<typename Rep, typename Period, class FnCallable, class ...Args>
 	bool StartTimed(const std::chrono::duration<Rep, Period> &time, FnCallable pfnCallable, Args ...args)
 	{
-		return CreateThread([&]() {m_tThread = std::thread(&CJoinThread::TimeWork<Rep, Period, FnCallable, Args...>, this, time, pfnCallable, std::move(args)...); });
+		return CreateThread([&]() {m_tThread = std::thread(&CLongStandingThread::TimeWork<Rep, Period, FnCallable, Args...>, this, time, pfnCallable, std::move(args)...); });
 	}
 
 	template<typename Rep, typename Period, class FnCallable, class ...Args>
 	bool StartWakeableWithTimed(const std::chrono::duration<Rep, Period> &time, FnCallable pfnCallable, Args ...args)
 	{
-		return CreateThread([&]() {m_tThread = std::thread(&CJoinThread::WakeableWithTimeWork<Rep, Period, FnCallable, Args...>, this, time, pfnCallable, std::move(args)...); });
+		return CreateThread([&]() {m_tThread = std::thread(&CLongStandingThread::WakeableWithTimeWork<Rep, Period, FnCallable, Args...>, this, time, pfnCallable, std::move(args)...); });
 	}
 
 	void RequestStop()
@@ -63,12 +63,12 @@ public:
 		m_aStatus.m_cv.notify_one();
 	}
 
-	auto ThreadID() const ->decltype(std::thread().get_id())
+	auto ThreadID() const ->decltype(std::declval<std::thread>().get_id())
 	{
 		return m_tThread.get_id();
 	}
 
-	auto NativeHandle()->decltype(std::thread().native_handle())
+	auto NativeHandle()->decltype(std::declval<std::thread>().native_handle())
 	{
 		return m_tThread.native_handle();
 	}
